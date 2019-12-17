@@ -1,12 +1,12 @@
 var obstacle1 = new Image();
 //obstacle .src
 
-var myObstacle = [
-    new obstacle (getRandom(0, 600), ((Math.random() * canvas.height - 410)), obstacle1, false, 50, 50),
-    new obstacle (getRandom(0, 600), ((Math.random() * canvas.height - 410)), obstacle1, false, 50, 50),
-    new obstacle (getRandom(0, 600), ((Math.random() * canvas.height - 410)), obstacle1, false, 50, 50),
-    new obstacle (getRandom(0, 600), ((Math.random() * canvas.height - 410)), obstacle1, false, 50, 50),
-  ];
+// var myObstacle = [
+//     new obstacle (getRandom(0, 600), ((Math.random() * canvas.height - 410)), obstacle1, false, 50, 50),
+//     new obstacle (getRandom(0, 600), ((Math.random() * canvas.height - 410)), obstacle1, false, 50, 50),
+//     new obstacle (getRandom(0, 600), ((Math.random() * canvas.height - 410)), obstacle1, false, 50, 50),
+//     new obstacle (getRandom(0, 600), ((Math.random() * canvas.height - 410)), obstacle1, false, 50, 50),
+//   ];
  
 class obstacle {
 constructor(x, y, image, width, height) {
@@ -30,15 +30,26 @@ constructor(x, y, image, width, height) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  
-  
    getObstacle() {
     for (var i=0; i < 1; i++ ) {
     myObstacle.push(new obstacle(getRandom(0, 600), ((Math.random() * canvas.height - 410)), obstacle1, false, 40, 40));
   //mirar
     }
-  
   }
-
-
+getDrawObstacle1(){
+    myObstacle.forEach(function(e){
+        e.y += 1;
+        e.draw();
+        if (
+            peter.x <= (e.x + 32)
+            && e.x <= (peter.x + 50)
+            && peter.y+60<= (e.y + 50)
+            && e.y <= (peter.y + 120)
+          ) {
+            e.y += NaN;
+            // breadSound.play();
+            // --weightWatchers;
+            // checkWeight();
+          }})
+    }
 }
